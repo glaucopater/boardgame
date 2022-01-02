@@ -1,20 +1,19 @@
-import { useState } from "react";
 import logo from "./logo.svg";
-import "./App.css";
 import { Board } from "./components/Board";
+import { MAX_HEIGHT, MAX_WIDTH } from "./config";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Board</h1>
+        <h1>Board Game Random Map Generator</h1>
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <main>
-        <Board width={10} height={10} />
+        <Board width={MAX_WIDTH} height={MAX_HEIGHT} />
       </main>
+      <footer className="App-footer">Made by GP</footer>
     </div>
   );
 }

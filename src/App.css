@@ -1,14 +1,14 @@
 .App {
-  text-align: center;
+  min-height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 }
 
 .App main {
-  place-content: center;
   place-items: center;
   display: flex;
   margin: 40px;
+  flex-direction: column;  
 }
 
 .App-logo {
@@ -24,13 +24,24 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  min-height: 4vh;
   display: flex;
   flex-direction: row;
   align-items: baseline;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-footer {
+  background-color: #282c34;
+  color: white;
+  min-height: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .App-link {
@@ -44,8 +55,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
 }
