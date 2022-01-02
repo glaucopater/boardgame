@@ -1,5 +1,4 @@
 export interface BoardProps {
-    width: number;
-    height: number;
-    onClick?: (x: number, y: number) => void;
+  width: number;
+  height: number;
 }
