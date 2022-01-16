@@ -18,7 +18,7 @@ export const Board = (props: BoardProps) => {
         const row = [...Array(height)].map((_item, index) => (
           <span
             className="board-item"
-            key={rowIndex + "-" + index}
+            key={`${rowIndex}-${index}`}
             onClick={handleClick}
           >
             <Tile ></Tile>

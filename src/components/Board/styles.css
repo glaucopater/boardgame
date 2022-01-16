@@ -2,12 +2,16 @@
   display: flex;
   flex-direction: row;
   margin: 8px;
+  padding: 8px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 .board-item {
   display: flex;
   flex-direction: row;
-  border: 1px solid transparent;
+  border: none;
   display: flex;
   place-content: center;
   place-items: center;
@@ -16,5 +20,5 @@
 .board-item:hover {
   background-color: #ddd;
   cursor: pointer;
-  border: 1px solid #999;
+  outline: 1px solid #999;
 }
