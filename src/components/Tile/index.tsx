@@ -1,71 +1,62 @@
+import { IGenericShapeProps } from "./types";
 import "./styles.css";
+import { getStyle } from "../utils";
 
-const Plus_Shape = () => {
+export const GenericShape = (props: IGenericShapeProps) => {
+  const { height, width, pattern, id } = props;
+
   return (
-    <>
-      <div className="top"></div>
-      <div className="right"></div>
-      <div className="center"></div>
-      <div className="bottom"></div>
-      <div className="left"></div>
-    </>
+    <div
+      className={"tile " + id}
+      style={{
+        height: height * 3,
+        width: width * 3,
+      }}
+    >
+      {pattern.map((item, index) => (
+        <div
+          key={index}
+          style={{ height, width, ...getStyle({ type: item, size: width }) }}
+          className={item}
+        ></div>
+      ))}
+    </div>
   );
 };
 
-const T_Shape = () => {
-  return (
-    <>
-      <div className="right"></div>
-      <div className="center"></div>
-      <div className="bottom"></div>
-      <div className="left"></div>
-    </>
-  );
+const Plus_Shape = (props: any) => {
+  const pattern = ["top", "right", "center", "bottom", "left"];
+  return <GenericShape {...props} pattern={pattern} />;
 };
 
-const Castle_Shape = () => {
-  return (
-    <>
-      <div className="top"></div>
-      <div className="right"></div>
-      <div className="center"></div>
-      <div className="left"></div>
-    </>
-  );
+const T_Shape = (props: any) => {
+  const pattern = ["right", "center", "bottom", "left"];
+  return <GenericShape {...props} pattern={pattern} />;
 };
 
-const FaceLeft_Shape = () => {
-  return (
-    <>
-      <div className="top"></div>
-      <div className="right"></div>
-      <div className="center"></div>
-      <div className="bottom"></div>
-    </>
-  );
+const Castle_Shape = (props: any) => {
+  const pattern = ["top", "right", "center", "left"];
+  return <GenericShape {...props} pattern={pattern} />;
 };
 
-const FaceRigth_Shape = () => {
-  return (
-    <>
-      <div className="top"></div>
-      <div className="center"></div>
-      <div className="bottom"></div>
-      <div className="left"></div>
-    </>
-  );
+const FaceLeft_Shape = (props: any) => {
+  const pattern = ["top", "right", "center", "bottom"];
+  return <GenericShape {...props} pattern={pattern} />;
+};
+
+const FaceRigth_Shape = (props: any) => {
+  const pattern = ["top", "center", "bottom", "right"];
+  return <GenericShape {...props} pattern={pattern} />;
 };
 
 // a function that returns a random value in a, b, c, d or e
-const randomValues = (randomValues: any) => {
+const randomValues = (randomValues: string[]) => {
   const values = [...randomValues];
   return values[Math.floor(Math.random() * values.length)];
 };
 
 // a component that renders a chess board with pieces
 export const Tile = () => {
-  const tileContent = <T_Shape />;
-
   const randomValue = randomValues([
     "T_Shape",
     "Plus_Shape",
@@ -74,39 +65,22 @@ export const Tile = () => {
     "FaceLeft_Shape",
   ]);
 
-  switch (randomValue) {
-    case "T_Shape":
-      return (
-        <div className={"tile " + randomValue}>
-          <T_Shape />
-        </div>
-      );
-    case "Plus_Shape":
-      return (
-        <div className={"tile " + randomValue}>
-          <Plus_Shape />{" "}
-        </div>
-      );
-    case "Castle_Shape":
-      return (
-        <div className={"tile " + randomValue}>
-          <Castle_Shape />
-        </div>
-      );
-    case "FaceLeft_Shape":
-      return (
-        <div className={"tile " + randomValue}>
-          <FaceLeft_Shape />
-        </div>
-      );
-    case "FaceRigth_Shape":
-      return (
-        <div className={"tile " + randomValue}>
-          <FaceRigth_Shape />
-        </div>
-      );
+  const defaultProps = {
+    width: 20,
+    height: 20,
+  };
 
+  switch (randomValue) {
+    case "Plus_Shape":
+      return <Plus_Shape {...defaultProps} id={randomValue} />;
+    case "Castle_Shape":
+      return <Castle_Shape {...defaultProps} id={randomValue} />;
+    case "FaceLeft_Shape":
+      return <FaceLeft_Shape {...defaultProps} id={randomValue} />;
+    case "FaceRigth_Shape":
+      return <FaceRigth_Shape {...defaultProps} id={randomValue} />;
+    case "T_Shape":
     default:
-      return <div className={"tile " + randomValue}>{tileContent}</div>;
+      return <T_Shape {...defaultProps} id={randomValue} />;
   }
 };
