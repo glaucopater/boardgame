@@ -1,6 +1,11 @@
 # boardgame
 A board game random maps generator
 
+![Demo](/public/boardgame.png)
+
+## [Live](https://nervous-newton-974fa3.netlify.app/) 🔥
+
+
 # Installation
 
 yarn
