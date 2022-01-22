@@ -1,0 +1,39 @@
+.tile {
+  display: flex;
+  flex-direction: row;
+  width: 75px;
+  height: 75px;
+  position: relative;
+}
+
+.tile div {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: gray;
+}
+
+.center {
+  top: 25px;
+  left: 25px;
+}
+
+.right {
+  right: 0px;
+  top: 25px;
+}
+
+.left {
+  left: 0px;
+  top: 25px;
+}
+
+.top {
+  left: 25px;
+  top: 0;
+}
+
+.bottom {
+  left: 25px;
+  bottom: 0;
+}
